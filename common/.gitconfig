@@ -9,3 +9,5 @@
 	gpgsign = true
 [include]
 	path = /home/zerotrace/.gitconfig.local
+[gpg "ssh"]
+	allowedSignersFile = /home/zerotrace/.config/git/allowed_signers
