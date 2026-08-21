@@ -1,5 +1,10 @@
 [user]
 	name = Chris
 	email = 79474990+zero9tracex4@users.noreply.github.com
+	signingkey = key::ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMyqZxH7Jwai2MWD5RhlSD2W04rCHn8QLJHaR6++KaEh SSH - voidbound-core\n
 [init]
 	defaultBranch = main
+[gpg]
+	format = ssh
+[commit]
+	gpgsign = true
