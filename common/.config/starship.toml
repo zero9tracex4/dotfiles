@@ -1,0 +1,57 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+add_newline = true
+
+format = """
+$os\
+$username\
+$hostname\
+$directory\
+$git_branch\
+$git_status\
+$cmd_duration\
+$line_break\
+$character"""
+
+[os]
+disabled = false
+style = "bold #cba6f7"
+format = "[$symbol]($style) "
+
+[os.symbols]
+Arch = " "
+
+[username]
+show_always = true
+style_user = "bold #cba6f7"
+format = "[$user]($style_user)"
+
+[hostname]
+ssh_only = false
+style = "bold #89b4fa"
+format = "[@$hostname]($style) "
+
+[directory]
+style = "bold #89b4fa"
+truncation_length = 4
+truncate_to_repo = false
+format = "[$path]($style) "
+
+[git_branch]
+symbol = " "
+style = "bold #cba6f7"
+format = "[$symbol$branch]($style) "
+
+[git_status]
+style = "bold #f38ba8"
+format = "[$all_status$ahead_behind]($style) "
+
+[cmd_duration]
+min_time = 1000
+style = "dimmed #a6adc8"
+format = "[took $duration]($style) "
+
+[character]
+success_symbol = "[❯](bold #cba6f7)"
+error_symbol = "[❯](bold #f38ba8)"
+vimcmd_symbol = "[❮](bold #a6e3a1)"

@@ -1,0 +1,18 @@
+# Secrets
+.env
+.env.*
+*.key
+*.pem
+*.p12
+*.pfx
+
+# SSH private keys
+id_rsa
+id_ed25519
+id_ecdsa
+
+# Temporary files
+*.bak
+*.tmp
+*.swp
+*~
