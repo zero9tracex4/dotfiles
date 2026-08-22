@@ -1,3 +1,6 @@
+if command -v fastfetch >/dev/null 2>&1; then
+    fastfetch
+fi
 # -----------------------------
 # Voidbound Zsh Configuration
 # -----------------------------
@@ -47,16 +50,24 @@ bindkey '^[[F' end-of-line
 bindkey '^[[3~' delete-char
 
 # fzf
-source <(fzf --zsh)
+if command -v fzf >/dev/null 2>&1; then
+    source <(fzf --zsh)
+fi
 
 # Autosuggestions
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+if [[ -r /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh ]]; then
+    source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+fi
 
 # Syntax highlighting MUST be near the end
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+if [[ -r /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]]; then
+    source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+fi
 
 # Starship prompt
-eval "$(starship init zsh)"
+if command -v starship >/dev/null 2>&1; then
+    eval "$(starship init zsh)"
+fi
 
 # General
 alias c='clear'
@@ -64,9 +75,13 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 
-alias ls='eza --icons=auto'
-alias ll='eza -lah --icons=auto --group-directories-first'
-alias tree='eza --tree --icons=auto'
+if command -v eza >/dev/null 2>&1; then
+    alias ls='eza --icons=auto'
+    alias ll='eza -lah --icons=auto --group-directories-first'
+    alias tree='eza --tree --icons=auto'
+else
+    alias ll='ls -lah'
+fi
 
 # Arch
 alias update='sudo pacman -Syu'
@@ -78,9 +93,14 @@ alias ga='git add'
 alias gc='git commit'
 alias gp='git push'
 alias gl='git log --oneline --graph --decorate'
-# Cat
-alias cat='bat --paging=never'
 
+#Cat
+if command -v bat >/dev/null 2>&1; then
+    alias cat='bat --paging=never'
+fi
+
+#Toolbox
+alias toolbox='distrobox enter core-toolbox'
 
 # Bitwarden SSH Agent
 export SSH_AUTH_SOCK="$HOME/.bitwarden-ssh-agent.sock"
