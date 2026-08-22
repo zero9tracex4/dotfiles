@@ -27,3 +27,5 @@ if [[ ${HYDE_ZSH_NO_PLUGINS} != "1" ]]; then
         "sudo"
     )
 fi
+# Bitwarden SSH Agent
+export SSH_AUTH_SOCK="$HOME/.bitwarden-ssh-agent.sock"
