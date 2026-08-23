@@ -28,4 +28,7 @@ if [[ ${HYDE_ZSH_NO_PLUGINS} != "1" ]]; then
     )
 fi
 # Bitwarden SSH Agent
-export SSH_AUTH_SOCK="$HOME/.bitwarden-ssh-agent.sock"
+# Preserve a forwarded SSH agent when connected remotely.
+if [[ -z "$SSH_AUTH_SOCK" || ! -S "$SSH_AUTH_SOCK" ]]; then
+    export SSH_AUTH_SOCK="$HOME/.bitwarden-ssh-agent.sock"
+fi
