@@ -42,3 +42,111 @@ end
 -- The full reference is KEYBINDINGS.md in the HyDE repository.
 --
 -- Other Lua files next to this one can be pulled in with require("name").
+
+-- =========================================================
+-- Voidbound Nova — UI
+-- =========================================================
+
+hl.config({
+    general = {
+        gaps_in = 6,
+        gaps_out = 10,
+        border_size = 2,
+    },
+
+    decoration = {
+        rounding = 10,
+
+        blur = {
+            enabled = true,
+            size = 6,
+            passes = 2,
+        },
+    },
+})
+
+-- =========================================================
+-- Voidbound Nova — Window Feel
+-- =========================================================
+
+hl.config({
+    decoration = {
+        active_opacity = 1.0,
+        inactive_opacity = 0.94,
+
+        shadow = {
+            enabled = true,
+            range = 12,
+            render_power = 3,
+        },
+    },
+
+    general = {
+        resize_on_border = true,
+        extend_border_grab_area = 15,
+    },
+})
+
+-- Fast, clean Voidbound animations
+
+hl.curve("voidboundFast", {
+    type = "bezier",
+    points = {
+        {0.16, 1.0},
+        {0.30, 1.0},
+    },
+})
+
+hl.curve("voidboundSmooth", {
+    type = "bezier",
+    points = {
+        {0.22, 1.0},
+        {0.36, 1.0},
+    },
+})
+
+hl.animation({
+    leaf = "windows",
+    enabled = true,
+    speed = 4,
+    bezier = "voidboundFast",
+    style = "popin 92%",
+})
+
+hl.animation({
+    leaf = "windowsIn",
+    enabled = true,
+    speed = 4,
+    bezier = "voidboundFast",
+    style = "popin 92%",
+})
+
+hl.animation({
+    leaf = "windowsOut",
+    enabled = true,
+    speed = 4,
+    bezier = "voidboundFast",
+    style = "popin 92%",
+})
+
+hl.animation({
+    leaf = "windowsMove",
+    enabled = true,
+    speed = 5,
+    bezier = "voidboundSmooth",
+})
+
+hl.animation({
+    leaf = "workspaces",
+    enabled = true,
+    speed = 5,
+    bezier = "voidboundSmooth",
+    style = "slide",
+})
+
+hl.animation({
+    leaf = "fade",
+    enabled = true,
+    speed = 5,
+    bezier = "voidboundFast",
+})

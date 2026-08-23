@@ -1,0 +1,70 @@
+/* =========================================================
+   Voidbound Nova — Waybar
+   ========================================================= */
+
+/* Global readability */
+* {
+    font-size: 13px;
+    min-height: 0;
+}
+
+/* Main modules */
+#cpu,
+#memory,
+#network,
+#pulseaudio,
+#battery,
+#clock,
+#tray,
+#custom-updates,
+#custom-power {
+    padding: 0 8px;
+}
+
+/* CPU + RAM */
+#cpu,
+#memory {
+    min-width: 34px;
+}
+
+/* Workspaces */
+#workspaces {
+    padding: 0 3px;
+}
+
+#workspaces button {
+    min-width: 27px;
+    padding: 0 6px;
+    margin: 3px 2px;
+    border-radius: 8px;
+}
+
+/* Make the active workspace visually stronger */
+#workspaces button.active {
+    font-weight: bold;
+}
+
+/* Window title */
+#window {
+    padding: 0 10px;
+    margin-left: 4px;
+}
+
+/* Clock should be easy to spot */
+#clock {
+    font-weight: 600;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+/* Tray */
+#tray {
+    padding-left: 6px;
+    padding-right: 6px;
+}
+
+/* Power button gets a little breathing room */
+#custom-power {
+    padding-left: 10px;
+    padding-right: 10px;
+}
