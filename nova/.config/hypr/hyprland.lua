@@ -150,3 +150,32 @@ hl.animation({
     speed = 5,
     bezier = "voidboundFast",
 })
+
+-- =========================================================
+-- Voidbound Nova — Keybinds
+-- =========================================================
+
+-- Terminal: SUPER + ENTER
+hl.unbind("SUPER + T")
+hl.bind("SUPER + RETURN", hl.dsp.exec_cmd(hyde.config.app.terminal), {
+    description = "[Launcher|Apps] terminal emulator",
+})
+
+-- Toggle maximized state without entering fullscreen
+local toggle_maximized = function()
+    local win = assert(hl.get_active_window(), "No active window")
+    local state = tonumber(win.fullscreen) or 0
+    local next_state = state == 1 and 0 or 1
+
+    hl.dispatch(
+        hl.dsp.window.fullscreen_state({
+            internal = next_state,
+            client = next_state,
+            window = win,
+        })
+    )
+end
+
+hl.bind("SUPER + D", toggle_maximized, {
+    description = "[Window Management] toggle maximize",
+})

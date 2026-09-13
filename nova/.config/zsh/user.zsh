@@ -32,3 +32,9 @@ fi
 if [[ -z "$SSH_AUTH_SOCK" || ! -S "$SSH_AUTH_SOCK" ]]; then
     export SSH_AUTH_SOCK="$HOME/.bitwarden-ssh-agent.sock"
 fi
+
+# Clear terminal screen and scrollback
+unalias clear 2>/dev/null
+function clear {
+    printf '\033[3J\033[H\033[2J'
+}
