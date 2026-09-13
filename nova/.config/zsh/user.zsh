@@ -38,3 +38,7 @@ unalias clear 2>/dev/null
 function clear {
     printf '\033[3J\033[H\033[2J'
 }
+
+# Default CLI editor
+export EDITOR="nvim"
+export VISUAL="nvim"
