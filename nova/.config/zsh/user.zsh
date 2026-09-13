@@ -40,5 +40,5 @@ function clear {
 }
 
 # Default CLI editor
-export EDITOR="nvim"
-export VISUAL="nvim"
+export EDITOR="code --wait"
+export VISUAL="code --wait"

@@ -11,3 +11,5 @@
 	path = /home/zerotrace/.gitconfig.local
 [gpg "ssh"]
 	allowedSignersFile = /home/zerotrace/.config/git/allowed_signers
+[core]
+	editor = code --wait
